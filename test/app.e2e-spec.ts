@@ -3,7 +3,7 @@ import { INestApplication } from '@nestjs/common';
 import * as request from 'supertest';
 import { AppModule } from './../src/app.module';
 
-describe('AppController (e2e)', () => {
+describe('LogParserController (e2e)', () => {
   let app: INestApplication;
 
   beforeEach(async () => {
@@ -15,10 +15,10 @@ describe('AppController (e2e)', () => {
     await app.init();
   });
 
-  it('/ (GET)', () => {
+  it('/api/v1/logparser (GET)', () => {
     return request(app.getHttpServer())
-      .get('/')
+      .get('/api/v1/logparser')
       .expect(200)
-      .expect('Hello World!');
+      .expect('Hello from Log Parser Service');
   });
 });
